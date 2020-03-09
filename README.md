@@ -10,20 +10,25 @@ Purpose:
     separated by spaces.
 
 Structure of solution:
+
     Class Maze - reads the input file and stores the contents of the matrix as well as its dimensions;
         also contains a function to determine whether a particular cell is blocked.
+        
     Class Queue - stores the queue of nodes to be explored; pop function returns the node in the queue
         with the lowest f(node) = g(node) + h(node) and removes it from the queue.
+        
     Class Solver - initialized with an object of class Maze; has 3 member functions: solve, solution,
         and trace_path. Function solve conducts the A* search on the maze and returns a Node object if
         a solution exists or None if there is no solution. Function solution returns the string which is
         to be written to the output file ('No Solution' or a shortest path to goal). Function trace_path
         takes a goal state node as an argument and constructs the solution string by following the nodes's
         parent attributes backwards until the intial state is reached.
+        
     Misc.- file also contains utility functions for determining whether a pair of coordinates
         are valid for a given maze (in_range), calculating cell number from x and y coordinates (cell_number),
         and calculating manhattan distance (manhattan_distance) as well as the definition of class Node,
         which is used in Solver.solve()to conduct A* search.
+        
     main - extracts input and output file names from commandline arguments, instantiates an object of
         class Maze using the input file name, then instantiates an object of class Solver using the
         resulting Maze object. The program then calls the Solver.solution() function and writes the result
